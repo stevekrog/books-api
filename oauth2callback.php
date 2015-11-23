@@ -1,4 +1,8 @@
 <?php
+/*
+* Acknowledgements to David Jones for much of this code
+*/
+
 if(isset($_GET['code'])){
   print "code is: " . $_GET['code'];
 

@@ -1,4 +1,8 @@
 <?php
+/*
+* Acknowledgements to David Jones for much of this code
+*/
+
   $url = "https://accounts.google.com/o/oauth2/auth";
 
   $params = array(
