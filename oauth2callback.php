@@ -38,14 +38,6 @@ if(isset($_GET['code'])){
   //   https://www.googleapis.com/auth/calendar
   //   /users/me/calendarList
 
-  // $params = array(
-  //     "code" => $code,
-  //     "client_id" => getenv('GOOGLE_BOOKS_AUTH_CLIENT_ID'),
-  //     "client_secret" => getenv('GOOGLE_BOOKS_AUTH_CLIENT_SECRET'),
-  //     "redirect_uri" => "http://localhost:8080/books-api/oauth2callback.php",
-  //     "grant_type" => "authorization_code"
-  // );
-
   //$url ='https://www.googleapis.com/calendar/v3/users/me/calendarList?access_token='.$token;
 
   // get a list of bookshelves for user
