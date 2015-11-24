@@ -28,25 +28,23 @@ if(isset($_GET['code'])){
   ));
   // Send the request & save response to $resp
   $resp = curl_exec($curl);
-    if ($resp == FALSE)
-    {
-        print "curl response was false <br />";
-        print "<pre>".print_r(curl_error($curl))."</pre>";
-    }
+  if ($resp == FALSE)
+  {
+    print "curl response was false <br />";
+    print "<pre>".print_r(curl_error($curl))."</pre>";
+  }
 
   print "<pre>".print_r(json_decode($resp), true)."</pre>";
   // Close request to clear up some resources
   curl_close($curl);
   $r = json_decode($resp);
   $token = $r->access_token;
-  //   https://www.googleapis.com/auth/calendar
-  //   /users/me/calendarList
 
-  //$url ='https://www.googleapis.com/calendar/v3/users/me/calendarList?access_token='.$token;
-
+  // todo: 1) find out how to get userid from previous request to use in request below
   // get a list of bookshelves for user
   // $url ='https://www.googleapis.com/books/v1/users/112515085508713743757/bookshelves?access_token='.$token;
 
+  // todo: 1) find out how to get volumeid from previous request to use in request below
   // get a specific volume
   $key = getenv('GOOGLE_BOOKS_AUTH_API_KEY');
   $url = 'https://www.googleapis.com/books/v1/volumes/PGR2AwAAQBAJ?key='.$key;
@@ -61,10 +59,8 @@ if(isset($_GET['code'])){
   // print htmlspecialchars($output);
   curl_close($ch);
 
-
   print "<br/><br/>";
   $obj = json_decode($output);
-
 
   print "<pre>".print_r($obj,true)."</pre>";
 
