@@ -1,6 +1,6 @@
 <?php
 /*
-* Acknowledgements to David Jones for much of this code
+* Acknowledgements to David Jones
 */
 
 if(isset($_GET['code'])){
@@ -40,11 +40,6 @@ if(isset($_GET['code'])){
   $r = json_decode($resp);
   $token = $r->access_token;
 
-  // todo: 1) find out how to get userid from previous request to use in request below
-  // get a list of bookshelves for user
-  // $url ='https://www.googleapis.com/books/v1/users/112515085508713743757/bookshelves?access_token='.$token;
-
-  // todo: 1) find out how to get volumeid from previous request to use in request below
   // get a specific volume
   $key = getenv('GOOGLE_BOOKS_AUTH_API_KEY');
   $url = 'https://www.googleapis.com/books/v1/volumes/PGR2AwAAQBAJ?key='.$key;
@@ -53,10 +48,9 @@ if(isset($_GET['code'])){
 
   curl_setopt($ch,CURLOPT_URL,$url);
   curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-//  curl_setopt($ch,CURLOPT_HEADER, false);
 
   $output=curl_exec($ch);
-  // print htmlspecialchars($output);
+
   curl_close($ch);
 
   print "<br/><br/>";
